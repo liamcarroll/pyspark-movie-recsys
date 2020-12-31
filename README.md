@@ -5,30 +5,32 @@ This repository contains the code and data which I used to build a simple movie 
 Below is an outline of how to run the code using Spark on Google Dataproc:
 
 1. Create a Cloud Storage Bucket on Google Cloud Platform (GCP) to host the data and upload the files below.
-2. Create a cluster, with Jupyter notebook compatibility, in order to run PySpark code using the following commands in the GCP console:\n
+2. Create a cluster, with Jupyter notebook compatibility, in order to run PySpark code using the following commands in the GCP console:
 
-`   gcloud services enable dataproc.googleapis.com \ \n
-                            compute.googleapis.com \ \n
-                            storage-component.googleapis.com \ \n
-                            bigquery.googleapis.com \ \n
+
+`   gcloud services enable dataproc.googleapis.com \
+                            compute.googleapis.com \
+                            storage-component.googleapis.com \
+                            bigquery.googleapis.com \
                             bigquerystorage.googleapis.com      `
 
 
-`   REGION=europe-west2 \n
-    ZONE=europe-west2-b \n
-    CLUSTER_NAME=[INSERT] \n
-    BUCKET_NAME=[INSERT] \n        `
+`   REGION=europe-west2
+    ZONE=europe-west2-b
+    CLUSTER_NAME=[INSERT]
+    BUCKET_NAME=[INSERT]        `
 
-`   gcloud beta dataproc clusters create ${CLUSTER_NAME} \ \n
-        --region=${REGION} \ \n
-        --zone=${ZONE} \ \n
-        --image-version=1.5 \ \n
-        --master-machine-type=n1-standard-4 \ \n
-        --worker-machine-type=n1-standard-4 \ \n
-        --bucket=${BUCKET_NAME} \ \n
-        --optional-components=ANACONDA,JUPYTER \ \n
-        --enable-component-gateway \ \n
-        --metadata 'PIP_PACKAGES=google-cloud-bigquery google-cloud-storage' \ \n
+
+`   gcloud beta dataproc clusters create ${CLUSTER_NAME} \
+        --region=${REGION} \
+        --zone=${ZONE} \
+        --image-version=1.5 \
+        --master-machine-type=n1-standard-4 \
+        --worker-machine-type=n1-standard-4 \
+        --bucket=${BUCKET_NAME} \
+        --optional-components=ANACONDA,JUPYTER \
+        --enable-component-gateway \
+        --metadata 'PIP_PACKAGES=google-cloud-bigquery google-cloud-storage' \
         --initialization-actions gs://goog-dataproc-initialization-actions-${REGION}/python/pip-install.sh      `
 
 
