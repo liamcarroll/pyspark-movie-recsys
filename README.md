@@ -1,4 +1,4 @@
-# CA4022 - Movie Recommender System using Spark
+# Movie Recommender System using Spark
 
 This repository contains the code and data which I used to build a simple movie recommendation system using *PySpark*. The dataset which I used is a small subset of the [MovieLens dataset](https://grouplens.org/datasets/movielens/). This dataset describes 5-star rating and free-text tagging activity from [MovieLens](http://movielens.org/), a movie recommendation service. The code which I used to implement the recommender system is displayed in the two Jupyter notebooks contained in the *notebooks* folder below: **data_prep.ipynb** and **recommender.ipynb**. All computations were carried out using Google Dataproc.
 
